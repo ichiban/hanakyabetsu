@@ -26,7 +26,7 @@
 (defun run (bot)
   (let ((timer (make-timer #'(lambda () (tweet bot)))))
     (setf (bot-timer bot) timer)
-    (schedule-timer timer *interval*)))
+    (schedule-timer timer 0 :repeat-interval *interval*)))
   
 (defun stop (bot)
   (unschedule-timer (bot-timer bot)))
